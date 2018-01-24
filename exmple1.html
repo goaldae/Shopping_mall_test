@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>shoppingmall_test</title>
+  <style>
+    .navbar{
+      border-bottom: 1px solid lightgray ;
+      padding-left: 5px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+    #sex a:hover{
+      color:black;
+    }
+    #menu a:hover{
+
+      color:lightgray;
+
+    }
+
+    #login{
+
+    }
+    #login a:hover{
+      color:black;
+    }
+    body{
+      background-color: #E6E6E6;
+    }
+    a{
+      color: gray;
+    }
+
+    .dropbtn {
+    background-color: #E6E6E6;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: lightgray 1px solid;
+}
+
+/*샵 카테고리 드랍다운*/
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 143px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 70%;
+
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+
+  color:#FF8000;
+  transition: 0.3s;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    background-color: white;
+
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: white ;
+}
+
+
+/*샵이름으로검색 서치바*/
+* {
+  box-sizing: border-box;
+}
+
+/* Style the search field */
+form.example input[type=text] {
+  padding: 6.5px;
+  font-size: 13px;
+  border: 1px solid #BDBDBD;
+  float: left;
+  min-width: 143px;
+  height: 50%;
+  background: lightgray;
+}
+
+
+/* Style the submit button */
+form.example button {
+  float: left;
+
+  padding: 4px;
+  background: lightgray;
+  color: white;
+  font-size: 15px;
+  border: 1px solid #BDBDBD;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: gray;
+}
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+/*라디오버튼*/
+.block{
+    display: block;
+    max-width:50px;
+    border: lightgray 1px solid;
+    background-color: #E6E6E6;
+    padding: 6px 5px;
+    font-size: 13px;
+    cursor: pointer;
+    text-align: center;
+    color: #6E6E6E;
+
+}
+.block:hover {
+    color: #FF8000;
+    transition: 0.3s;
+}
+.cards{
+  border-bottom: :1px solid gray;
+  padding-top: 50px;
+  padding-bottom: 40px;
+  background-color: white;
+  width: 261px;
+  margin-right: 2px;
+  margin-top: 4px;
+}
+#cardList{
+  border-bottom: :1px solid gray;
+  padding-top: 50px;
+  padding-bottom: 0px;
+  background-color: white;
+  width: 261px;
+  margin-right: 2px;
+}
+.allItem:hover{
+  text-decoration: none;
+  color:black;
+}
+.myShop:hover{
+  text-decoration: none;
+  color:black;
+}
+.allItem{
+  font-size: 80%;
+}
+.myShop{
+  font-size: 80%;
+}
+  </style>
+</head>
+
+<body>
+<div class="sticky-top"><!--스크롤시 상단에 고정하기-->
+<!-- nav바 -->
+<!------------------------------------------------------------------------->
+      <nav class="navbar navbar-light bg-light row" style="height:60px">
+        <div class="col-auto">
+          <div class="row" style="line-height: 50px">
+          <a class="navbar-brand col-auto" href="#" style="margin-left:5px;padding:0px; margin-right:0px">
+            <img src="logo.PNG" width="65" height="63" >
+          </a>
+
+          <ul class="nav col-auto" id="sex">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">WOMEN</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">MEN</a>
+          </ul>
+        </div>
+        </div>
+
+        <ul class="nav col-auto" id="menu">
+          <li class="nav-item">
+            <a class="nav-link" href="#">SHOP</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">ITEM</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">LOOK</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">MORE</a>
+          </li>
+
+        </ul>
+        <div class="col-auto">
+          <div class="row"style="line-height: 45px">
+            <ul class="nav col-auto" style="font-size:60%" id="login">
+
+              <li class="nav-item">
+                <a class="nav-link" href="#" >로그인</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">개인정보처리방침</a>
+              </li>
+            </ul>
+
+            <a class="navbar-brand col-auto" href="#" style="margin-right:0px;border-left:solid gray 1px">
+              <img src="ionicons-2.0.1\png\512\ios7-search-strong.png" style="" width="30" height="30" >
+            </a>
+          </div>
+      </div>
+    </nav>
+
+<!--2열 메뉴들 -->
+<!------------------------------------------------------------------------->
+<!------------------------------------------------------------------------->
+
+<!--샵카테고리 검색 -->
+<div class="row" style="margin-bottom:20px; background-color: #E6E6E6;padding-bottom:20px">
+  <div class="col offset-md-1" style="line-height:7px;margin-top:20px;max-width:545px">
+    <div class="dropdown" >
+      <button class="dropbtn" style="font-size:80%; padding:10px 25px 10px 25px">샵 카테고리 <span style="color:#FF8000">ALL</span></button>
+      <div class="dropdown-content">
+        <a href="#">트랜드·캐쥬얼</a>
+        <a href="#">유니크·빈티지</a>
+        <a href="#">클래식·수트</a>
+        <a href="#">레플리카·제작</a>
+        <a href="#">슈즈</a>
+        <a href="#">액세사리·잡화</a>
+        <a href="#">빅사이즈</a>
+        <a href="#">댄디·심플</a>
+        <a href="#">스트릿·도매스틱</a>
+      </div>
+    </div>
+</div>
+
+<!--샵이름으로 검색 -->
+<div class="col" style="margin-top:20px;padding-left:0px">
+      <!-- Load icon library -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <!-- The form -->
+      <form class="example col" action="action_page.php">
+        <input type="text" placeholder="샵이름으로검색" name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+</div>
+
+<div class="col" style="margin-top:20px; margin-right:8.33%;max-width:200px">
+<div class="row">
+<button type="button" class="block col" >전체</button>
+<button type="button" class="block col" style="max-width:50px">10대</button>
+<button type="button" class="block col" style="max-width:50px">20대</button>
+<button type="button" class="block col" style="max-width:50px">30대</button>
+</div>
+</div>
+</div>
+
+</div>
+
+<!--카드 리스트들-->
+<!------------------------------------------------------------------------->
+<div class="row offset-md-1">
+
+<div class="cards">
+  <center>
+  <a>
+    <img src="WIN_20170423_19_51_22_Pro.jpg"  width="80" height="80" style="border-radius:50%;">
+  </a>
+</center>
+<br>
+<center>
+<span style="font-size:160%;color:gray">MY <span style="font-weight:bold;">SHOP</span></span>
+</center>
+<br>
+<div class="row">
+<div class="col" style="text-align:center;border-right:1px solid lightgray">
+<span style="color:gray">SHOP </span><br><br><span style="font-size:200%">0</span>
+</div>
+<div class="col" style="text-align:center">
+<span style="color:gray">NEW ITEM</span> <br><br><span style="color:#FF8000;font-size:200%">0</span>
+</div>
+</div>
+</div>
+<!--홈페이지 카드들-->
+<!------------------------------------------------------------------------->
+<div class="cards" id="cardList">
+  <center>
+  <a>
+    <img src="WIN_20170423_19_51_22_Pro.jpg"  width="80" height="80" style="border-radius:50%;">
+  </a>
+</center>
+<br>
+<center>
+<span style="font-size:140%;color:black">슈퍼스타아이</span>
+</center>
+<br>
+<center>
+10대,20대<br>트랜드 캐쥬얼
+</center>
+<br><br>
+<div class="row" style="border-top:lightgray solid 1px;max-width:261px; margin:0px; line-height:44px">
+<div class="col" style="text-align:center;border-right:lightgray solid 1px">
+  <a class="allItem" href="#">전체상품</a>
+</div>
+<div class="col" style="text-align:center">
+  <a class="myShop" href="#">마이샵+</a>
+</div>
+
+</div>
+</div>
+
+<div class="cards" id="cardList">
+  <center>
+  <a>
+    <img src="WIN_20170423_19_51_22_Pro.jpg"  width="80" height="80" style="border-radius:50%;">
+  </a>
+</center>
+<br>
+<center>
+<span style="font-size:140%;color:black">슈퍼스타아이</span>
+</center>
+<br>
+<center>
+10대,20대<br>트랜드 캐쥬얼
+</center>
+<br><br>
+<div class="row" style="border-top:lightgray solid 1px;max-width:261px; margin:0px; line-height:44px">
+<div class="col" style="text-align:center;border-right:lightgray solid 1px">
+  <a class="allItem" href="#">전체상품</a>
+</div>
+<div class="col" style="text-align:center">
+  <a class="myShop" href="#">마이샵+</a>
+</div>
+
+</div>
+</div>
+
+<div class="cards" id="cardList">
+  <center>
+  <a>
+    <img src="WIN_20170423_19_51_22_Pro.jpg"  width="80" height="80" style="border-radius:50%;">
+  </a>
+</center>
+<br>
+<center>
+<span style="font-size:140%;color:black">슈퍼스타아이</span>
+</center>
+<br>
+<center>
+10대,20대<br>트랜드 캐쥬얼
+</center>
+<br><br>
+<div class="row" style="border-top:lightgray solid 1px;max-width:261px; margin:0px; line-height:44px">
+<div class="col" style="text-align:center;border-right:lightgray solid 1px">
+  <a class="allItem" href="#">전체상품</a>
+</div>
+<div class="col" style="text-align:center">
+  <a class="myShop" href="#">마이샵+</a>
+</div>
+
+</div>
+</div>
+
+<div class="cards" id="cardList">
+  <center>
+  <a>
+    <img src="WIN_20170423_19_51_22_Pro.jpg"  width="80" height="80" style="border-radius:50%;">
+  </a>
+</center>
+<br>
+<center>
+<span style="font-size:140%;color:black">슈퍼스타아이</span>
+</center>
+<br>
+<center>
+10대,20대<br>트랜드 캐쥬얼
+</center>
+<br><br>
+<div class="row" style="border-top:lightgray solid 1px;max-width:261px; margin:0px; line-height:44px">
+<div class="col" style="text-align:center;border-right:lightgray solid 1px">
+  <a class="allItem" href="#">전체상품</a>
+</div>
+<div class="col" style="text-align:center">
+  <a class="myShop" href="#">마이샵+</a>
+</div>
+
+</div>
+</div>
+
+<div class="cards" id="cardList">
+  <center>
+  <a>
+    <img src="WIN_20170423_19_51_22_Pro.jpg"  width="80" height="80" style="border-radius:50%;">
+  </a>
+</center>
+<br>
+<center>
+<span style="font-size:140%;color:black">슈퍼스타아이</span>
+</center>
+<br>
+<center>
+10대,20대<br>트랜드 캐쥬얼
+</center>
+<br><br>
+<div class="row" style="border-top:lightgray solid 1px;max-width:261px; margin:0px; line-height:44px">
+<div class="col" style="text-align:center;border-right:lightgray solid 1px">
+  <a class="allItem" href="#">전체상품</a>
+</div>
+<div class="col" style="text-align:center">
+  <a class="myShop" href="#">마이샵+</a>
+</div>
+
+</div>
+</div>
+
+<div class="cards" id="cardList">
+  <center>
+  <a>
+    <img src="WIN_20170423_19_51_22_Pro.jpg"  width="80" height="80" style="border-radius:50%;">
+  </a>
+</center>
+<br>
+<center>
+<span style="font-size:140%;color:black">슈퍼스타아이</span>
+</center>
+<br>
+<center>
+10대,20대<br>트랜드 캐쥬얼
+</center>
+<br><br>
+<div class="row" style="border-top:lightgray solid 1px;max-width:261px; margin:0px; line-height:44px">
+<div class="col" style="text-align:center;border-right:lightgray solid 1px">
+  <a class="allItem" href="#">전체상품</a>
+</div>
+<div class="col" style="text-align:center">
+  <a class="myShop" href="#">마이샵+</a>
+</div>
+
+</div>
+</div>
+
+<div class="cards" id="cardList">
+  <center>
+  <a>
+    <img src="WIN_20170423_19_51_22_Pro.jpg"  width="80" height="80" style="border-radius:50%;">
+  </a>
+</center>
+<br>
+<center>
+<span style="font-size:140%;color:black">슈퍼스타아이</span>
+</center>
+<br>
+<center>
+10대,20대<br>트랜드 캐쥬얼
+</center>
+<br><br>
+<div class="row" style="border-top:lightgray solid 1px;max-width:261px; margin:0px; line-height:44px">
+<div class="col" style="text-align:center;border-right:lightgray solid 1px">
+  <a class="allItem" href="#">전체상품</a>
+</div>
+<div class="col" style="text-align:center">
+  <a class="myShop" href="#">마이샵+</a>
+</div>
+
+</div>
+</div>
+
+<div class="cards" id="cardList">
+  <center>
+  <a>
+    <img src="WIN_20170423_19_51_22_Pro.jpg"  width="80" height="80" style="border-radius:50%;">
+  </a>
+</center>
+<br>
+<center>
+<span style="font-size:140%;color:black">슈퍼스타아이</span>
+</center>
+<br>
+<center>
+10대,20대<br>트랜드 캐쥬얼
+</center>
+<br><br>
+<div class="row" style="border-top:lightgray solid 1px;max-width:261px; margin:0px; line-height:44px">
+<div class="col" style="text-align:center;border-right:lightgray solid 1px">
+  <a class="allItem" href="#">전체상품</a>
+</div>
+<div class="col" style="text-align:center">
+  <a class="myShop" href="#">마이샵+</a>
+</div>
+
+</div>
+</div>
+<div class="cards" id="cardList">
+  <center>
+  <a>
+    <img src="WIN_20170423_19_51_22_Pro.jpg"  width="80" height="80" style="border-radius:50%;">
+  </a>
+</center>
+<br>
+<center>
+<span style="font-size:140%;color:black">슈퍼스타아이</span>
+</center>
+<br>
+<center>
+10대,20대<br>트랜드 캐쥬얼
+</center>
+<br><br>
+<div class="row" style="border-top:lightgray solid 1px;max-width:261px; margin:0px; line-height:44px">
+<div class="col" style="text-align:center;border-right:lightgray solid 1px">
+  <a class="allItem" href="#">전체상품</a>
+</div>
+<div class="col" style="text-align:center">
+  <a class="myShop" href="#">마이샵+</a>
+</div>
+
+</div>
+</div>
+</div>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
